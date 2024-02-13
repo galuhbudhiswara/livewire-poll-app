@@ -7,7 +7,7 @@ use Livewire\Component;
 class CreatePoll extends Component
 {
     public $title;
-    public $options = [''];
+    public $options = ['FIRST'];
     public function render()
     {
         return view('livewire.create-poll');
@@ -15,6 +15,11 @@ class CreatePoll extends Component
 
      public function AddOption() {
         $this->options[] = '';
+    }
+
+    public function  removeOption ($index) {
+        unset($this->options[$index]);
+        $this->options = array_values($this->options);
     }
 
     // public function mount() {
